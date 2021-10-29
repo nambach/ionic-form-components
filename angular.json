@@ -169,7 +169,7 @@
         }
       }
     },
-    "IonicFormComponents": {
+    "ionic-form-components": {
       "projectType": "library",
       "root": "projects/ionic-form-components",
       "sourceRoot": "projects/ionic-form-components/src",

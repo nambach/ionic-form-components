@@ -5,9 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 
 import { HomePageRoutingModule } from './home-routing.module';
-
-import { IonicFormModule } from 'ionic-form-components';
-
+import { IonicFormModule } from 'projects/ionic-form-components/src/public-api';
 
 @NgModule({
   imports: [
@@ -15,8 +13,8 @@ import { IonicFormModule } from 'ionic-form-components';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
-    IonicFormModule
+    IonicFormModule,
   ],
-  declarations: [HomePage]
+  declarations: [HomePage],
 })
 export class HomePageModule {}

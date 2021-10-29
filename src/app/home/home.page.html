@@ -7,17 +7,18 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI
-      Components</a></p>
-  </div>
-
-  <app-border-input label="Hello" [required]="true" placeholder="Type something"></app-border-input>
+  <app-border-input
+    label="Hello"
+    [required]="true"
+    placeholder="Type something">
+  </app-border-input>
+  <app-date-picker
+    label="Date"
+    required="true">
+  </app-date-picker>
+  <app-file-picker
+    label="Files"
+    required="true"
+    [(values)]="files">
+  </app-file-picker>
 </ion-content>

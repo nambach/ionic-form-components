@@ -1,0 +1,13 @@
+:host {
+  .label {
+    padding-left: 2px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: var(--ion-color-dark-tint);
+
+    .required {
+      color: var(--ion-color-danger);
+    }
+  }
+}

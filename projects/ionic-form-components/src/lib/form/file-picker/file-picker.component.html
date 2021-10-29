@@ -1,0 +1,13 @@
+<div class="label">{{ label }} <span *ngIf="required" class="required">*</span></div>
+<input #picker (change)="handleChange($event)" hidden type="file"/>
+
+<div class="btn-upload">
+  <ion-button fill="outline" color="primary" (click)="handleOpen()">Upload file</ion-button>
+</div>
+
+<ng-container *ngIf="values?.length">
+  <app-file-picker-item
+    *ngFor="let file of values; let i = index" [file]="file"
+    (deleteTouch)="removeItem(i)"
+  ></app-file-picker-item>
+</ng-container>
