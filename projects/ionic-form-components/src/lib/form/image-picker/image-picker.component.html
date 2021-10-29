@@ -1,16 +1,14 @@
-<div id="container">
-  <div id="label">{{ label }} <span *ngIf="required" class="required">*</span></div>
-  <input #picker (change)="handleChange($event)" accept="image/*" hidden type="file"/>
+<div class="label">{{ label }} <span *ngIf="required" class="required">*</span></div>
+<input #input (change)="handleChange($event)" accept="image/*" hidden type="file"/>
 
-  <div (click)="handleOpen()" *ngIf="!imageUrl" id="picker">
-    <ion-icon name="image-outline"></ion-icon>
-    <div>Upload photo</div>
-  </div>
+<div (click)="handleOpen()" *ngIf="!imageUrl" class="picker">
+  <ion-icon name="image-outline"></ion-icon>
+  <div>Upload photo</div>
+</div>
 
-  <div *ngIf="imageUrl" class="image">
-    <img (click)="handleOpen()" [src]="imageUrl"/>
-    <div (click)="handleClear()" class="close-btn">
-      <ion-icon name="close"></ion-icon>
-    </div>
+<div *ngIf="imageUrl" class="image">
+  <img (click)="handleOpen()" [src]="imageUrl"/>
+  <div (click)="handleClear()" class="close-btn">
+    <ion-icon name="close"></ion-icon>
   </div>
 </div>

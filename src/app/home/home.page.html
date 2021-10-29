@@ -21,4 +21,15 @@
     required="true"
     [(values)]="files">
   </app-file-picker>
+  <app-image-picker
+    label="Photo"
+    required="true">
+  </app-image-picker>
+  <app-multiple-select
+    label="Values"
+    required="true"
+    [(values)]="multiple"
+    [config]="config"
+    [options]="options">
+  </app-multiple-select>
 </ion-content>

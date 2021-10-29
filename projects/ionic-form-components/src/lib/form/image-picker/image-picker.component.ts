@@ -1,12 +1,19 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
 
 @Component({
   selector: 'app-image-picker',
   templateUrl: './image-picker.component.html',
-  styleUrls: ['./image-picker.component.scss']
+  styleUrls: ['./image-picker.component.scss'],
 })
 export class ImagePickerComponent {
-  @ViewChild('picker') picker: ElementRef<HTMLInputElement>;
+  @ViewChild('input') picker: ElementRef<HTMLInputElement>;
 
   @Input() label = '';
   @Input() required: any;

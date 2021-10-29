@@ -1,4 +1,5 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
+import { SelectModalConfig } from 'dist/ionic-form-components/types/select-modal-config.models';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +8,12 @@ import {Component} from '@angular/core';
 })
 export class HomePage {
   files: any[] = [];
+  multiple: any[] = [];
+  config: SelectModalConfig<string> = {
+    keyExtractor: (v) => v,
+    valueExtractor: (v) => v,
+  };
+  options: string[] = ['1', '2', '3'];
 
-  constructor() {
-  }
+  constructor() {}
 }

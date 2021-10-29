@@ -1,19 +1,7 @@
-#container {
-  margin: 16px 0px;
+@import "../../../styles/control-label";
 
-  #label {
-    padding-left: 2px;
-    font-size: 14px;
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: var(--ion-color-dark-tint);
-
-    .required {
-      color: var(--ion-color-danger);
-    }
-  }
-
-  #picker {
+:host {
+  .picker {
     width: 100px;
     height: 100px;
     border: 1px solid var(--ion-color-primary);
