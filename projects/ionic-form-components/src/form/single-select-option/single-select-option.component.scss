@@ -1,0 +1,5 @@
+ion-item {
+  &.selected {
+    --background: var(--ion-color-light-shade);
+  }
+}

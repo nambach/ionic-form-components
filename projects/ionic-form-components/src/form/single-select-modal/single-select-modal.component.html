@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{ modalConfig.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ng-container *ngIf="showSelectedValue">
+  <div class="selected-value">
+    <span> {{ initialValue | getSelectValue: modalConfig }} </span>
+  </div>
+</ng-container>
+
+<app-border-input
+  (valueChange)="handleSearch($event)"
+  [value]="search"
+  isSearchBox="true"
+  placeholder="Search"
+></app-border-input>
+
+<ion-content>
+  <ion-list>
+    <ng-container *ngFor="let option of filteredOptions; trackBy: trackByFn">
+      <app-single-select-option
+        (touch)="handleSelect(option)"
+        [isSelected]="option.isSelected"
+        [label]="option.value"
+      >
+      </app-single-select-option>
+    </ng-container>
+  </ion-list>
+</ion-content>

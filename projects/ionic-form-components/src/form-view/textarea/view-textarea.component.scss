@@ -1,0 +1,29 @@
+#container {
+  margin: 16px 0px;
+  min-height: 36px;
+
+  #label {
+    padding-left: 2px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: var(--ion-color-dark-tint);
+
+    .required {
+      color: var(--ion-color-danger);
+    }
+  }
+
+  #content {
+    border: 1px solid var(--ion-color-light-shade);
+    border-radius: 4px;
+    padding: 10px;
+
+    font-size: 16px;
+    color: var(--ion-color-dark);
+
+    &.no-content {
+      color: var(--ion-color-medium);
+    }
+  }
+}

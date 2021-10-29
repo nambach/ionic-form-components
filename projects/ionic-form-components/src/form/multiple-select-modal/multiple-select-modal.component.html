@@ -1,0 +1,44 @@
+<ng-container>
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button (click)="dismiss()">
+          <ion-icon name="close-outline" slot="icon-only"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-button (click)="toggleAll(true)" fill="clear"> All</ion-button>
+      </ion-buttons>
+      <ion-title>{{ modalConfig.title }}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <app-border-input
+    (valueChange)="handleSearch($event)"
+    [placeholder]="'Search ' + modalConfig.title"
+    [value]="search"
+    isSearchBox="true"
+    style="padding: 0 16px"
+  ></app-border-input>
+
+  <div id="count-message">
+    {{ countMessage }}
+  </div>
+
+  <ion-content>
+    <ion-list>
+      <ng-container *ngFor="let option of filteredOptions; trackBy: trackByFn">
+        <app-multiple-select-option
+          (touch)="toggle(option)"
+          [isSelected]="option.isSelected"
+          [label]="option.value"
+        >
+        </app-multiple-select-option>
+      </ng-container>
+    </ion-list>
+  </ion-content>
+  <div id="bottom-buttons">
+    <ion-button (click)="toggleAll(false)" color="light" style="flex: 1">Clear</ion-button>
+    <ion-button (click)="handleApply()" color="primary" style="flex: 3">Save</ion-button>
+  </div>
+</ng-container>

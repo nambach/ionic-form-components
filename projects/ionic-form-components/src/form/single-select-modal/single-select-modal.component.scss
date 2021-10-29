@@ -1,0 +1,10 @@
+app-border-input {
+  padding: 0px 16px;
+}
+
+.selected-value {
+  border: 1px solid var(--ion-color-light-shade);
+  border-radius: 4px;
+  margin: 16px 16px 0;
+  padding: 10px 16px;
+}

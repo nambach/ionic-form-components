@@ -1,0 +1,5 @@
+<ng-container *ngFor="let image of images; let i = index; trackBy: trackBy">
+  <ng-container *ngIf="image">
+    <app-image-item (touch)="openViewer(i)" [image]="image"></app-image-item>
+  </ng-container>
+</ng-container>

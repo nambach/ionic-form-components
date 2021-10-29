@@ -1,0 +1,8 @@
+<div id="container">
+  <div id="label">{{ label }} <span *ngIf="required" class="required">*</span></div>
+  <div [class.disabled]="disabled" id="input-container">
+    <ion-datetime [disabled]="disabled" [value]="timeValue" [placeholder]="placeholder"
+                  [min]="min" [max]="max" (ionChange)="handleChange($event)">
+    </ion-datetime>
+  </div>
+</div>

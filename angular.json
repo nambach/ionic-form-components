@@ -168,6 +168,37 @@
           }
         }
       }
+    },
+    "IonicFormComponents": {
+      "projectType": "library",
+      "root": "projects/ionic-form-components",
+      "sourceRoot": "projects/ionic-form-components/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ionic-form-components/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ionic-form-components/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ionic-form-components/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ionic-form-components/src/test.ts",
+            "tsConfig": "projects/ionic-form-components/tsconfig.spec.json",
+            "karmaConfig": "projects/ionic-form-components/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "cli": {

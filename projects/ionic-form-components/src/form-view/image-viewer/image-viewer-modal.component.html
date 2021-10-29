@@ -1,0 +1,27 @@
+<ion-content>
+  <ion-slides [options]="sliderZoomOpts" class="image-slide">
+    <ng-container *ngFor="let image of images; trackBy: trackBy">
+      <ion-slide *ngIf="image">
+        <div class="swiper-zoom-container">
+          <img [alt]="image.name" [src]="image.url"/>
+        </div>
+      </ion-slide>
+    </ng-container>
+  </ion-slides>
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col class="ion-text-left horizontal-align-center" size="8">
+      <span class="font-color light bold" style="word-break: break-all; margin-left: 20px">{{
+        label
+        }}</span>
+    </ion-col>
+    <ion-col class="ion-text-center" size="4">
+      <ion-button (click)="close()" color="light" fill="clear">
+        <ion-icon name="close" slot="start"></ion-icon>
+        close
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

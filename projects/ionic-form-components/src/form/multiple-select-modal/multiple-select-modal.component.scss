@@ -1,0 +1,13 @@
+#count-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--ion-color-light-shade);
+  padding-bottom: 15px;
+}
+
+#bottom-buttons {
+  ion-button {
+    margin: 0 6px;
+  }
+}

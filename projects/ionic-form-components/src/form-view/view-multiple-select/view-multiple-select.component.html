@@ -1,0 +1,12 @@
+<app-view-textarea
+  [label]="label"
+  placeholder="No selected"
+  [value]="count"
+  [required]="required"
+></app-view-textarea>
+<ng-container *ngIf="valuesStr?.length">
+  <ion-chip *ngFor="let val of valuesStr" outline>
+    <ion-label>{{val}}</ion-label>
+  </ion-chip>
+  <br/>
+</ng-container>

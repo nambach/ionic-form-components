@@ -1,0 +1,10 @@
+<ion-item (click)="handleClick()" [class.selected]="isSelected" button detail="false" lines="none">
+  <ion-icon
+    *ngIf="isSelected"
+    name="checkmark-outline"
+    slot="end"
+    style="color: var(--ion-color-dark)"
+  ></ion-icon>
+
+  <ion-label>{{ label }}</ion-label>
+</ion-item>

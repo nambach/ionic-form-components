@@ -1,0 +1,9 @@
+<div id="container">
+  <div id="label">{{ label }} <span *ngIf="required" class="required">*</span></div>
+  <div (click)="handleClick()" [class.disabled]="disabled" id="input-container">
+    <span [class.unselected]="value === null || value === undefined">
+      {{ value || placeholder }}
+    </span>
+    <ion-icon name="chevron-forward-outline"></ion-icon>
+  </div>
+</div>

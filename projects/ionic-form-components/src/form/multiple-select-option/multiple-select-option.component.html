@@ -1,0 +1,17 @@
+<ion-item (click)="handleClick()" button detail="false" lines="none">
+  <ion-icon
+    *ngIf="isSelected"
+    [name]="selectedIcon"
+    slot="start"
+    style="color: var(--ion-color-success-shade)"
+  ></ion-icon>
+
+  <ion-icon
+    *ngIf="isSelected === false"
+    [name]="defaultIcon"
+    slot="start"
+    style="color: var(--ion-color-medium)"
+  ></ion-icon>
+
+  <ion-label>{{ label }}</ion-label>
+</ion-item>

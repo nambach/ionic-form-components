@@ -1,0 +1,9 @@
+<div (click)="touch.emit()" class="container">
+  <img [alt]="image.name" [src]="image.url"/>
+  <div class="detail">
+    <span *ngIf="image.name" class="bold fs14"> {{ image.name }} </span>
+    <span *ngIf="image.createdTime" class="fs12 font-color medium">
+      {{ image.createdTime | date: "MMM d, y, h:mm a" }}
+    </span>
+  </div>
+</div>

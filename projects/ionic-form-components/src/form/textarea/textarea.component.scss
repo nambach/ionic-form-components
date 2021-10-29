@@ -1,0 +1,23 @@
+#container {
+  margin: 16px 0px;
+
+  #label {
+    padding-left: 2px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: var(--ion-color-dark-tint);
+
+    .required {
+      color: var(--ion-color-danger);
+    }
+  }
+
+  ion-textarea {
+    --padding-start: 12px;
+    --padding-end: 12px;
+    --placeholder-color: var(--ion-color-medium);
+    border: 1px solid var(--ion-color-light-shade);
+    border-radius: 4px;
+  }
+}

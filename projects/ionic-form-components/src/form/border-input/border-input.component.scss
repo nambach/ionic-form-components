@@ -1,0 +1,33 @@
+#container {
+  margin: 12px 0;
+
+  #label {
+    padding-left: 2px;
+    font-size: 14px;
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: var(--ion-color-dark-tint);
+
+    .required {
+      color: var(--ion-color-danger);
+    }
+  }
+
+  #input-container {
+    padding: 0 8px;
+    border: var(--ion-color-light-shade) 1px solid;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    ion-icon {
+      color: var(--ion-color-medium-tint);
+      margin-right: 6px;
+    }
+
+    ion-input {
+      --placeholder-color: var(--ion-color-medium);
+    }
+  }
+}
