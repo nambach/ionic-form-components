@@ -1,4 +1,4 @@
-import { stringComparator } from '../utils/list';
+import { stringComparator } from '../utils';
 
 export class Wrap<T = unknown> {
   data: T;
@@ -6,7 +6,11 @@ export class Wrap<T = unknown> {
   value: string;
   isSelected: boolean;
 
-  constructor(data: T, keyExtractor: (obj: T) => unknown, valueExtractor: (obj: T) => string) {
+  constructor(
+    data: T,
+    keyExtractor: (obj: T) => unknown,
+    valueExtractor: (obj: T) => string
+  ) {
     this.data = data;
     this.key = keyExtractor(data);
     this.value = valueExtractor(data);
@@ -21,10 +25,15 @@ export interface SelectModalConfig<T = unknown> {
   noSort?: boolean;
 }
 
-export const wrapOptions = <T = unknown>(config: SelectModalConfig<T>, options: T[]): Wrap<T>[] => {
+export const wrapOptions = <T = unknown>(
+  config: SelectModalConfig<T>,
+  options: T[]
+): Wrap<T>[] => {
   const { keyExtractor, valueExtractor, noSort } = config;
 
-  const rs = (options || []).map((o) => new Wrap(o, keyExtractor, valueExtractor));
+  const rs = (options || []).map(
+    (o) => new Wrap(o, keyExtractor, valueExtractor)
+  );
   if (!noSort) {
     return rs.sort(stringComparator((w) => w.value?.trim()));
   }
@@ -33,7 +42,6 @@ export const wrapOptions = <T = unknown>(config: SelectModalConfig<T>, options: 
 };
 
 export const emptyModalConfig: SelectModalConfig = {
-  keyExtractor: (o: any) => o?.id,
-  valueExtractor: (o: any) => o?.name,
-  title: 'Select'
+  keyExtractor: (o: any) => o?.id || o,
+  valueExtractor: (o: any) => o?.name || o,
 };

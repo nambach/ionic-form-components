@@ -1,11 +1,15 @@
 import { DatePipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
-import { timeAgo } from '../../utils/time';
+import { timeAgo } from '../../utils';
 
 @Pipe({ name: 'timeAgo' })
 export class TimeAgoPipe implements PipeTransform {
   // @ts-ignore
-  transform(value: number, days?: number, pattern = 'MMM d, y, h:mm a') {
+  transform(value: number | Date, days?: number, pattern = 'MMM d, y, h:mm a') {
+    if (value instanceof Date) {
+      value = value.getTime();
+    }
+
     if (!days) {
       return timeAgo(value);
     }

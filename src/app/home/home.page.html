@@ -1,70 +1,99 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Ionic Form Components
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <app-border-input
-    label="Hello"
-    [required]="true"
-    placeholder="Type something">
-  </app-border-input>
-  <app-date-picker
-    label="Date"
-    placeholder="Select a date"
-    required="true">
-  </app-date-picker>
-  <app-file-picker
-    label="Files"
-    required="true"
-    [(values)]="files">
-  </app-file-picker>
-  <app-image-picker
-    label="Photo"
-    required="true">
-  </app-image-picker>
-  <app-multiple-select
-    label="Values"
-    required="true"
-    [(values)]="multiple"
-    [config]="config"
-    [options]="options">
-  </app-multiple-select>
-  <app-single-select
-    label="Value"
-    required="true"
-    showSelectedValue="true"
-    [(value)]="single"
-    [config]="config"
-    [options]="options">
-  </app-single-select>
-  <app-textarea
-    label="Description"
-    [(value)]="description"
-    required="true">
-  </app-textarea>
-  <app-expandable [expanded]="true">
-    asdasda
-    asdasd
-    <br>
-    asdasdad
-    asdasd
-    asdasda
-    asdasd
-    <br>
-    asdasdad
-    asdasd
-    asdasda
-    asdasd
-    <br>
-    asdasdad
-    asdasd
-  </app-expandable>
-  <img
-    alt="Raphtalia"
-    src="https://ecdn.game4v.com/g4v-content/uploads/2020/09/game4v-the-rising-of-the-shield-hero-raphtalia-11-1024x576.jpg"
-    appImageViewer/>
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Components
+      </ion-label>
+    </ion-list-header>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-border-input'}">
+      <ion-label>
+        <h2>app-border-input</h2>
+        <p>Text/numeric input with label</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-textarea'}">
+      <ion-label>
+        <h2>app-textarea</h2>
+        <p>Wrapper of IonTextarea</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-date-picker'}">
+      <ion-label>
+        <h2>app-date-picker</h2>
+        <p>Wrapper of IonDatetime</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-file-picker'}">
+      <ion-label>
+        <h2>app-file-picker</h2>
+        <p>Multiple files picker</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-image-picker'}">
+      <ion-label>
+        <h2>app-image-picker</h2>
+        <p>Single image picker</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-single-select'}">
+      <ion-label>
+        <h2>app-single-select</h2>
+        <p>Single option select</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-multiple-select'}">
+      <ion-label>
+        <h2>app-multiple-select</h2>
+        <p>Multiple options select</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-expandable-select'}">
+      <ion-label>
+        <h2>app-expandable-select</h2>
+        <p>Single select with expandable options</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-expandable-multiselect'}">
+      <ion-label>
+        <h2>app-expandable-multiselect</h2>
+        <p>Multiple select with expandable options</p>
+      </ion-label>
+    </ion-item>
+    <ion-list-header>
+      <ion-label>
+        Directives
+      </ion-label>
+    </ion-list-header>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'img[appImageViewer]'}">
+      <ion-label>
+        <h2>img[appImageViewer]</h2>
+        <p>Image viewer with zoom/pan gestures</p>
+      </ion-label>
+    </ion-item>
+    <ion-list-header>
+      <ion-label>
+        Pipes
+      </ion-label>
+    </ion-list-header>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'parseJson'}">
+      <ion-label>
+        <h2>parseJson</h2>
+        <p>Convert a string to JSON object</p>
+      </ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'timeAgo'}">
+      <ion-label>
+        <h2>timeAgo</h2>
+        <p>Convert a Date to format 'ago'</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

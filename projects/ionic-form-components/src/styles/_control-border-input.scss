@@ -1,6 +1,5 @@
 :host {
   .input-container {
-    //padding: 0 8px;
     border: var(--ion-color-light-shade) 1px solid;
     border-radius: 4px;
     display: flex;
@@ -13,6 +12,10 @@
     }
 
     ion-input {
+      &.ios {
+        --padding-start: 8px !important;
+      }
+
       --placeholder-color: var(--ion-color-medium);
     }
   }

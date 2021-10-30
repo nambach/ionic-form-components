@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{type}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="type === 'app-border-input'">
+    <app-border-input
+      label="Email"
+      placeholder="User Email"
+      required="true"
+      [(value)]="textValue">
+    </app-border-input>
+  </ng-container>
+  <ng-container *ngIf="type === 'app-date-picker'">
+    <app-date-picker
+      label="Start Date"
+      placeholder="Select a date"
+      required="true"
+      [(value)]="date">
+    </app-date-picker>
+  </ng-container>
+  <ng-container *ngIf="type === 'app-textarea'">
+    <app-textarea
+      label="Description"
+      placeholder="Provide a detail description"
+      required="true"
+      [(value)]="textValue">
+    </app-textarea>
+  </ng-container>
+  <ng-container *ngIf="type === 'app-file-picker'">
+    <app-file-picker
+      label="Files"
+      required="true"
+      [(values)]="files">
+    </app-file-picker>
+  </ng-container>
+  <ng-container *ngIf="type === 'app-image-picker'">
+    <app-image-picker
+      label="Photo"
+      required="true">
+    </app-image-picker>
+  </ng-container>
+  <ng-container *ngIf="type === 'app-single-select'">
+    <app-single-select
+      label="Nation"
+      placeholder="Select a country"
+      required="true"
+      [value]="nation"
+      [config]="nationConfig"
+      [options]="nations">
+    </app-single-select>
+  </ng-container>
+  <ng-container *ngIf="type === 'app-multiple-select'">
+    <app-multiple-select
+      label="Favorite Film Genres"
+      placeholder="Select your favorite genres"
+      [(values)]="favGenres"
+      [options]="genres"
+      required="true">
+    </app-multiple-select>
+  </ng-container>
+  <ng-container *ngIf="type === 'app-expandable-select'">
+    <app-expandable-select
+      label="Subscription Type"
+      [options]="workTypes"
+      [config]="workTypeConfig"
+      [(value)]="workType"
+      required="true">
+    </app-expandable-select>
+  </ng-container>
+  <ng-container *ngIf="type === 'app-expandable-multiselect'">
+    <app-expandable-multiselect
+      label="Favorite Technologies"
+      [options]="techs"
+      [(values)]="favTechs"
+      required="true">
+    </app-expandable-multiselect>
+  </ng-container>
+  <ng-container *ngIf="type === 'img[appImageViewer]'">
+    <img
+      src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
+      alt="Photo" width="150px" appImageViewer>
+  </ng-container>
+  <ng-container *ngIf="type === 'parseJson'">
+    <b>Before</b><br>
+    <div>{{techs | json}}</div>
+    <br/>
+    <b>After</b>
+    <div>{{techs | json | parseJson}}</div>
+  </ng-container>
+  <ng-container *ngIf="type === 'timeAgo'">
+    <b>Timestamp: </b> <span>{{timePoint.getTime()}}</span>
+    <br>
+    <br>
+    <b>Date Time (GMT): </b> <span>{{timePoint.toUTCString()}}</span>
+    <br>
+    <br>
+    <b>Time Ago: </b> <span>{{timePoint | timeAgo}}</span>
+  </ng-container>
+</ion-content>

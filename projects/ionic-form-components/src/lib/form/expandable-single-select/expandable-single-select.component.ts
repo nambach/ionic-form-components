@@ -13,7 +13,7 @@ import {
 })
 export class ExpandableSingleSelectComponent implements OnInit {
   @Input() label = '';
-
+  @Input() required: any;
   @Output() valueChange = new EventEmitter<any>();
 
   allOptions: Wrap[] = [];

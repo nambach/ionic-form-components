@@ -13,6 +13,7 @@ import {
 })
 export class ExpandableMultipleSelectComponent implements OnInit {
   @Input() label = '';
+  @Input() required: any;
 
   @Output() valuesChange = new EventEmitter<any[]>();
 

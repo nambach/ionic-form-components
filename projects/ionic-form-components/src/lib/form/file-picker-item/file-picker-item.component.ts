@@ -12,7 +12,7 @@ export class FilePickerItemComponent {
   @Output() touch = new EventEmitter();
 
   rawFile: FileModel;
-  imageSrc: any = 'assets/file.png';
+  imageSrc: any = 'https://cdn-icons-png.flaticon.com/512/633/633585.png';
   fileSize = '';
 
   constructor() {}

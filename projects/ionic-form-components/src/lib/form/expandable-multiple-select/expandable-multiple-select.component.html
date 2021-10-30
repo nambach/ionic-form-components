@@ -2,7 +2,7 @@
   <ion-item [detail]="!isExpanded" button (click)="expand()">
     <ion-label>
       <b>
-        {{ label }}
+        {{ label }} <span *ngIf="required" class="required">*</span>
       </b>
       <ion-note style="float: right" *ngIf="countMessage?.length" color="medium">
         {{ countMessage }}
@@ -18,6 +18,7 @@
 
   <app-expandable [expanded]="isExpanded">
     <ng-container *ngFor="let option of allOptions; trackBy: trackByFn; let i = index">
+      <br *ngIf="i === 0"/>
       <app-multiple-select-option
         [label]="option.value"
         [isSelected]="option.isSelected"

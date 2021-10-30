@@ -12,4 +12,4 @@ const pipes = [ParseJsonPipe, TimeAgoPipe];
   imports: [CommonModule],
   exports: [pipes],
 })
-export class MyCommonPipesModule {}
+export class IonicFormPipesModule {}

@@ -11,6 +11,10 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'form-inputs',
+    loadChildren: () => import('./pages/form-inputs/form-inputs.module').then( m => m.FormInputsPageModule)
+  }
 ];
 
 @NgModule({
