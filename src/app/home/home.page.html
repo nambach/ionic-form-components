@@ -14,6 +14,7 @@
   </app-border-input>
   <app-date-picker
     label="Date"
+    placeholder="Select a date"
     required="true">
   </app-date-picker>
   <app-file-picker
@@ -32,4 +33,17 @@
     [config]="config"
     [options]="options">
   </app-multiple-select>
+  <app-single-select
+    label="Value"
+    required="true"
+    showSelectedValue="true"
+    [(value)]="single"
+    [config]="config"
+    [options]="options">
+  </app-single-select>
+  <app-textarea
+    label="Description"
+    [(value)]="description"
+    required="true">
+  </app-textarea>
 </ion-content>

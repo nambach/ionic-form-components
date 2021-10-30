@@ -1,3 +1,5 @@
+@import "../../../styles/button-select";
+
 app-border-input {
   margin: 14px 0;
 }
@@ -11,17 +13,15 @@ app-border-input {
 }
 
 .bottom-buttons {
-  width: 100%;
-  display: flex;
-  padding: 20px 16px;
-
   ion-button {
     &:first-child {
       flex: 1;
+      margin-right: 8px;
     }
 
     &:last-child {
       flex: 2;
+      margin-left: 8px;
     }
   }
 }

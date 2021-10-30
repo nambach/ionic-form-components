@@ -1,12 +1,10 @@
-<div id="container">
-  <div id="label">{{ label }} <span *ngIf="required" class="required">*</span></div>
-  <ion-textarea
-    (ionBlur)="focusOut.emit($event.target['value'])"
-    (ionChange)="valueChange.emit($event.target['value'])"
-    [placeholder]="placeholder"
-    [rows]="3"
-    [value]="value"
-    [readonly]="!!readonly"
-    [autoGrow]="!!autoGrow"
-  ></ion-textarea>
-</div>
+<div class="label">{{ label }} <span *ngIf="required" class="required">*</span></div>
+<ion-textarea
+  (ionBlur)="focusOut.emit($event.target['value'])"
+  (ionChange)="valueChange.emit($event.target['value'])"
+  [placeholder]="placeholder"
+  [rows]="3"
+  [value]="value"
+  [readonly]="!!readonly"
+  [autoGrow]="!!autoGrow"
+></ion-textarea>

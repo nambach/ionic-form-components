@@ -1,18 +1,6 @@
-#container {
-  margin: 16px 0px;
+@import "../../../styles/control-label";
 
-  #label {
-    padding-left: 2px;
-    font-size: 14px;
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: var(--ion-color-dark-tint);
-
-    .required {
-      color: var(--ion-color-danger);
-    }
-  }
-
+:host {
   ion-textarea {
     --padding-start: 12px;
     --padding-end: 12px;

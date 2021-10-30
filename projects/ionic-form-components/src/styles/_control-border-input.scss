@@ -1,6 +1,6 @@
 :host {
   .input-container {
-    padding: 0 8px;
+    //padding: 0 8px;
     border: var(--ion-color-light-shade) 1px solid;
     border-radius: 4px;
     display: flex;
@@ -9,7 +9,7 @@
 
     ion-icon {
       color: var(--ion-color-medium-tint);
-      margin-right: 6px;
+      margin: 6px;
     }
 
     ion-input {

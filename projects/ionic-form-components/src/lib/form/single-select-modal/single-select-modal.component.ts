@@ -15,6 +15,7 @@ export class SingleSelectModalComponent {
   allOptions: Wrap[] = [];
   filteredOptions: Wrap[] = [];
   initialValue: unknown;
+  displayValue: any;
   modalConfig: SelectModalConfig = emptyModalConfig;
 
   constructor(private modalCtrl: ModalController) {}
@@ -40,6 +41,9 @@ export class SingleSelectModalComponent {
 
   @Input() set value(initialValue: unknown) {
     this.initialValue = initialValue;
+    if (this.modalConfig?.valueExtractor) {
+      this.displayValue = this.modalConfig.valueExtractor(initialValue);
+    }
 
     // set selected value
     this.toggleInitialValue();
