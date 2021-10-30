@@ -6,9 +6,8 @@ Simple Ionic components for building mobile form.
 
 ## Demo
 
-Multiple options select
 <p align="center">
-<img src="/wiki/images/gif/multiple-select.gif" height="500" />
+<img src="/wiki/images/gif/full.gif" height="500" />
 </p>
 
 ## Setup
