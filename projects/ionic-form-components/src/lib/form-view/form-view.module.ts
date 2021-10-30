@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
-import { ExpandableComponent } from './expandable/expandable.component';
 import { ImageItemComponent } from './image-item/image-item.component';
 import { ImageItemsComponent } from './image-items/image-items.component';
 import { ImageViewerDirective } from './image-viewer/image-viewer.directive';
@@ -10,7 +9,6 @@ import { ViewMultipleSelectComponent } from './view-multiple-select/view-multipl
 import { ViewTextareaComponent } from './textarea/view-textarea.component';
 
 export {
-  ExpandableComponent,
   ImageViewerModalComponent,
   ImageViewerDirective,
   ImageItemComponent,
@@ -20,7 +18,6 @@ export {
 };
 
 const components = [
-  ExpandableComponent,
   ImageViewerModalComponent,
   ImageViewerDirective,
   ImageItemComponent,
@@ -34,4 +31,4 @@ const components = [
   imports: [CommonModule, IonicModule],
   exports: [components],
 })
-export class MyFormViewModule {}
+export class IonicFormViewModule {}

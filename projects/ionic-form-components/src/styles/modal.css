@@ -1,0 +1,9 @@
+/*for image viewer*/
+.transparent-modal .modal-wrapper {
+  --background: rgba(44, 39, 45, 0.2);
+}
+
+.full-modal {
+  --height: 100%;
+  --width: 100%;
+}

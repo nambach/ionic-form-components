@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { BorderInputComponent } from './border-input/border-input.component';
+import { DatePickerComponent } from './date-picker/date-picker.component';
+import { ExpandableComponent } from './expandable/expandable.component';
+import { ExpandableSingleSelectComponent } from './expandable-single-select/expandable-single-select.component';
+import { ExpandableMultipleSelectComponent } from './expandable-multiple-select/expandable-multiple-select.component';
 import { MultipleSelectModalComponent } from './multiple-select-modal/multiple-select-modal.component';
 import { MultipleSelectOptionComponent } from './multiple-select-option/multiple-select-option.component';
 import { SelectInputComponent } from './select-input/select-input.component';
@@ -13,10 +17,12 @@ import { ImagePickerComponent } from './image-picker/image-picker.component';
 import { TextareaComponent } from './textarea/textarea.component';
 import { FilePickerComponent } from './file-picker/file-picker.component';
 import { FilePickerItemComponent } from './file-picker-item/file-picker-item.component';
-import { DatePickerComponent } from './date-picker/date-picker.component';
 
 export {
   BorderInputComponent,
+  ExpandableComponent,
+  ExpandableSingleSelectComponent,
+  ExpandableMultipleSelectComponent,
   ImagePickerComponent,
   FilePickerComponent,
   FilePickerItemComponent,
@@ -33,6 +39,9 @@ export {
 
 const components = [
   BorderInputComponent,
+  ExpandableComponent,
+  ExpandableSingleSelectComponent,
+  ExpandableMultipleSelectComponent,
   ImagePickerComponent,
   FilePickerComponent,
   FilePickerItemComponent,

@@ -1,0 +1,31 @@
+<ng-container>
+  <ion-item [detail]="!isExpanded" button (click)="expand()">
+    <ion-label>
+      <b>
+        {{ label }}
+      </b>
+      <ion-note style="float: right" *ngIf="getCurrentSelected()" color="medium">
+        {{ getCurrentSelected() }}
+      </ion-note>
+    </ion-label>
+    <ion-icon
+      slot="end"
+      id="chevron-down"
+      name="chevron-down-outline"
+      *ngIf="isExpanded"
+    ></ion-icon>
+  </ion-item>
+
+  <app-expandable [expanded]="isExpanded">
+    <ng-container *ngFor="let option of allOptions; trackBy: trackByFn; let i = index">
+      <app-multiple-select-option
+        [label]="option.value"
+        [isSelected]="option.isSelected"
+        defaultIcon="radio-button-off-outline"
+        selectedIcon="radio-button-on-outline"
+        (touch)="toggle(option)"
+      >
+      </app-multiple-select-option>
+    </ng-container>
+  </app-expandable>
+</ng-container>

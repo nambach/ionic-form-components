@@ -3,5 +3,8 @@
   "dest": "../../dist/ionic-form-components",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "assets": [
+    "./src/styles/modal.css"
+  ]
 }

@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {SelectModalConfig} from 'dist/ionic-form-components/types/select-modal-config.models';
+import { Component } from '@angular/core';
+import { SelectModalConfig } from 'ionic-form-components';
 
 @Component({
   selector: 'app-home',
@@ -17,6 +17,5 @@ export class HomePage {
   single: any;
   description: string;
 
-  constructor() {
-  }
+  constructor() {}
 }
