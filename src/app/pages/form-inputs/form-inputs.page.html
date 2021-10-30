@@ -50,7 +50,8 @@
       label="Nation"
       placeholder="Select a country"
       required="true"
-      [value]="nation"
+      showSelectedValue="true"
+      [(value)]="nation"
       [config]="nationConfig"
       [options]="nations">
     </app-single-select>

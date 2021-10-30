@@ -46,7 +46,7 @@ export class SingleSelectModalComponent {
 
   @Input() set value(initialValue: unknown) {
     this.initialValue = initialValue;
-    if (this.modalConfig?.valueExtractor) {
+    if (this.modalConfig?.valueExtractor && initialValue) {
       this.displayValue = this.modalConfig.valueExtractor(initialValue);
     }
 
