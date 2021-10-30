@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
-import { ImageData } from 'projects/ionic-form-components/src/lib/types/image.model';
-import { ImageViewerModalComponent } from './image-viewer-modal.component';
 import { ModalController } from '@ionic/angular';
+import { ImageData } from '../../types';
+import { ImageViewerModalComponent } from './image-viewer-modal.component';
 
 @Directive({
   selector: 'img[appImageViewer]',

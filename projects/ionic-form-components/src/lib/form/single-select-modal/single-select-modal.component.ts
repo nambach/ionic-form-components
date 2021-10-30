@@ -1,11 +1,16 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { emptyModalConfig, SelectModalConfig, Wrap, wrapOptions } from 'projects/ionic-form-components/src/lib/types/select-modal-config.models';
+import {
+  emptyModalConfig,
+  SelectModalConfig,
+  Wrap,
+  wrapOptions,
+} from '../../types/select-modal-config.models';
 
 @Component({
   selector: 'ion-single-select-modal',
   templateUrl: './single-select-modal.component.html',
-  styleUrls: ['./single-select-modal.component.scss']
+  styleUrls: ['./single-select-modal.component.scss'],
 })
 export class SingleSelectModalComponent {
   @Input() showSelectedValue = false;

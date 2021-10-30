@@ -1,11 +1,23 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { emptyModalConfig, SelectModalConfig, Wrap, wrapOptions } from 'projects/ionic-form-components/src/lib/types/select-modal-config.models';
+import {
+  emptyModalConfig,
+  SelectModalConfig,
+  Wrap,
+  wrapOptions,
+} from '../../types/select-modal-config.models';
 
 @Component({
   selector: 'app-multiple-select-modal',
   templateUrl: './multiple-select-modal.component.html',
-  styleUrls: ['./multiple-select-modal.component.scss']
+  styleUrls: ['./multiple-select-modal.component.scss'],
 })
 export class MultipleSelectModalComponent implements OnInit, OnDestroy {
   @Output() valuesChange = new EventEmitter<unknown[]>();

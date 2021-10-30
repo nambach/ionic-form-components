@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FileModel } from 'projects/ionic-form-components/src/lib/types/file.model';
-import { calculateFileSize } from 'projects/ionic-form-components/src/lib/utils/io';
+import { FileModel } from '../../types';
+import { calculateFileSize } from '../../utils';
 
 @Component({
   selector: 'app-file-picker-item',
   templateUrl: './file-picker-item.component.html',
-  styleUrls: ['./file-picker-item.component.scss']
+  styleUrls: ['./file-picker-item.component.scss'],
 })
 export class FilePickerItemComponent {
   @Output() deleteTouch = new EventEmitter();

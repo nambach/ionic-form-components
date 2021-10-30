@@ -1,10 +1,17 @@
-import { Component, ElementRef, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { FileModel } from 'projects/ionic-form-components/src/lib/types/file.model';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
+import { FileModel } from '../../types';
 
 @Component({
   selector: 'app-file-picker',
   templateUrl: './file-picker.component.html',
-  styleUrls: ['./file-picker.component.scss']
+  styleUrls: ['./file-picker.component.scss'],
 })
 export class FilePickerComponent {
   @ViewChild('picker') picker: ElementRef<HTMLInputElement>;

@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { SingleSelectModalComponent } from 'projects/ionic-form-components/src/lib/form/single-select-modal/single-select-modal.component';
-import { emptyModalConfig } from 'projects/ionic-form-components/src/lib/types/select-modal-config.models';
+import { emptyModalConfig } from '../../types';
+import { SingleSelectModalComponent } from '../single-select-modal/single-select-modal.component';
 
 @Component({
   selector: 'app-single-select',
   templateUrl: './single-select.component.html',
-  styleUrls: ['./single-select.component.scss']
+  styleUrls: ['./single-select.component.scss'],
 })
 export class SingleSelectComponent {
   @Input() label = '';
@@ -34,8 +34,8 @@ export class SingleSelectComponent {
         showSelectedValue: this.showSelectedValue,
         config: this.config,
         options: this.options,
-        value: this.value
-      }
+        value: this.value,
+      },
     });
     modal.present();
 

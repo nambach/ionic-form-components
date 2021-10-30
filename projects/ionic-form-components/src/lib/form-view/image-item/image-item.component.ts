@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ImageData } from 'projects/ionic-form-components/src/lib/types/image.model';
+import { ImageData } from '../../types';
 
 @Component({
   selector: 'app-image-item',
   templateUrl: './image-item.component.html',
-  styleUrls: ['./image-item.component.scss']
+  styleUrls: ['./image-item.component.scss'],
 })
 export class ImageItemComponent implements OnInit {
   @Input() image: Partial<ImageData> = {};

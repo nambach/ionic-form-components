@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { MultipleSelectModalComponent } from 'projects/ionic-form-components/src/lib/form/multiple-select-modal/multiple-select-modal.component';
-import { emptyModalConfig } from 'projects/ionic-form-components/src/lib/types/select-modal-config.models';
+import { emptyModalConfig } from '../../types';
+import { MultipleSelectModalComponent } from '../multiple-select-modal/multiple-select-modal.component';
 
 @Component({
   selector: 'app-multiple-select',
   templateUrl: './multiple-select.component.html',
-  styleUrls: ['./multiple-select.component.scss']
+  styleUrls: ['./multiple-select.component.scss'],
 })
 export class MultipleSelectComponent {
   @Input() label = '';
@@ -37,8 +37,8 @@ export class MultipleSelectComponent {
       componentProps: {
         config: this.config,
         options: this.options,
-        values: this.values
-      }
+        values: this.values,
+      },
     });
     modal.present();
 
@@ -56,7 +56,9 @@ export class MultipleSelectComponent {
     }
 
     const all =
-      this.values?.length === this.options?.length && this.options?.length > 0 ? ' (All)' : '';
+      this.values?.length === this.options?.length && this.options?.length > 0
+        ? ' (All)'
+        : '';
     return `${this.values?.length} selected${all}`;
   }
 }

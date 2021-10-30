@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { ImageData } from 'projects/ionic-form-components/src/lib/types/image.model';
-import { ImageViewerModalComponent } from 'projects/ionic-form-components/src/lib/form-view/image-viewer/image-viewer-modal.component';
+import { ImageData } from '../../types';
+import { ImageViewerModalComponent } from '../image-viewer/image-viewer-modal.component';
 
 @Component({
   selector: 'app-image-items',

@@ -2,7 +2,7 @@ import { Component, Input, OnDestroy, ViewChild } from '@angular/core';
 import { IonSlides, ModalController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { ImageData } from 'projects/ionic-form-components/src/lib/types/image.model';
+import { ImageData } from '../../types';
 
 interface ImageViewerData {
   images: ImageData[];
@@ -12,7 +12,7 @@ interface ImageViewerData {
 @Component({
   selector: 'app-image-viewer-modal',
   templateUrl: './image-viewer-modal.component.html',
-  styleUrls: ['./image-viewer-modal.component.scss']
+  styleUrls: ['./image-viewer-modal.component.scss'],
 })
 export class ImageViewerModalComponent implements OnDestroy {
   @ViewChild(IonSlides) slides: IonSlides;
@@ -21,8 +21,8 @@ export class ImageViewerModalComponent implements OnDestroy {
   sliderZoomOpts = {
     initialSlide: 0,
     zoom: {
-      maxRatio: 5
-    }
+      maxRatio: 5,
+    },
   };
   unsub$ = new Subject();
 
@@ -38,10 +38,12 @@ export class ImageViewerModalComponent implements OnDestroy {
   }
 
   ionViewDidEnter() {
-    this.slides.ionSlideDidChange.pipe(takeUntil(this.unsub$)).subscribe(async (e) => {
-      const i = await this.slides.getActiveIndex();
-      this.label = this.images[i]?.name;
-    });
+    this.slides.ionSlideDidChange
+      .pipe(takeUntil(this.unsub$))
+      .subscribe(async (e) => {
+        const i = await this.slides.getActiveIndex();
+        this.label = this.images[i]?.name;
+      });
     this.slides.update();
   }
 

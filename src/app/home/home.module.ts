@@ -1,11 +1,11 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IonicModule } from '@ionic/angular';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
+import { IonicModule } from '@ionic/angular';
+import { IonicFormModule, IonicFormViewModule } from 'ionic-form-components';
 
 import { HomePageRoutingModule } from './home-routing.module';
-import {IonicFormModule, IonicFormViewModule} from 'projects/ionic-form-components/src/public-api';
+import { HomePage } from './home.page';
 
 @NgModule({
   imports: [
@@ -14,7 +14,7 @@ import {IonicFormModule, IonicFormViewModule} from 'projects/ionic-form-componen
     IonicModule,
     HomePageRoutingModule,
     IonicFormModule,
-    IonicFormViewModule
+    IonicFormViewModule,
   ],
   declarations: [HomePage],
 })
