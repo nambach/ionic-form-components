@@ -1,6 +1,26 @@
 {
   "name": "ionic-form-components",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Simple Ionic components for building mobile form.",
+  "author": {
+    "name": "Nam Bach",
+    "url": "https://github.com/nambach"
+  },
+  "repository": {
+    "url": "https://github.com/nambach/ionic-form-components",
+    "type": "git"
+  },
+  "bugs": {
+    "url": "https://github.com/nambach/ionic-form-components/issues"
+  },
+  "homepage": "https://github.com/nambach/ionic-form-components",
+  "keywords": [
+    "Angular",
+    "Ionic",
+    "Mobile",
+    "Form"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^12.1.0",
     "@angular/core": "^12.1.0",
