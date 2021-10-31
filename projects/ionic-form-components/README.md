@@ -24,6 +24,8 @@ yarn add ionic-form-components
 
 ### 2. Import modules
 
+Modify the page's module that needs to use components as below.
+
 ```ts
 import {
   IonicFormModule,
@@ -43,10 +45,18 @@ import {
 export class SomePageModule {}
 ```
 
+### 3. Import styles
+
+Add this import statement in your `global.scss` file.
+
+```scss
+@import "~ionic-form-components/src/styles/modal.css";
+```
+
 ## Notes
 
 Support:
-- Angular 12.1.0 +
+- Angular 12.0.0 +
 - Ionic 5.0.0 +
 
 ## License
