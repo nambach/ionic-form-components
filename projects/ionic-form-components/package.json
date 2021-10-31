@@ -1,6 +1,6 @@
 {
   "name": "ionic-form-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple Ionic components for building mobile form.",
   "author": {
     "name": "Nam Bach",
@@ -22,8 +22,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^12.1.0",
-    "@angular/core": "^12.1.0",
+    "@angular/common": "^12.0.0",
+    "@angular/core": "^12.0.0",
     "@ionic/angular": "^5.0.0"
   },
   "dependencies": {
