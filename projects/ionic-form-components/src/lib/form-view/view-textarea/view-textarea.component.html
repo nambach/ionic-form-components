@@ -1,0 +1,7 @@
+<div class="label">
+  {{ label }}
+  <span *ngIf="required" class="required">*</span>
+</div>
+<div class="content" [class.no-content]="!value">
+  {{ value || placeholder || "&#x200b;" }}
+</div>

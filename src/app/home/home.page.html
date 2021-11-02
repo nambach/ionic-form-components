@@ -8,6 +8,12 @@
 
 <ion-content>
   <ion-list>
+<!--    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'all'}">-->
+<!--      <ion-label>-->
+<!--        <h2>All</h2>-->
+<!--        <p>Display all in one page</p>-->
+<!--      </ion-label>-->
+<!--    </ion-item>-->
     <ion-list-header>
       <ion-label>
         Components
@@ -19,7 +25,7 @@
         <p>Text/numeric input with label</p>
       </ion-label>
     </ion-item>
-    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-textarea'}">
+    <ion-item [routerLink]="['/form-inputs']" [queryParams]="{'type': 'app-view-textarea'}">
       <ion-label>
         <h2>app-textarea</h2>
         <p>Wrapper of IonTextarea</p>

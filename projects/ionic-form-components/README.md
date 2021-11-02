@@ -50,7 +50,8 @@ export class SomePageModule {}
 Add this import statement in your `global.scss` file.
 
 ```scss
-@import "~ionic-form-components/src/styles/modal.css";
+@import "~ionic-form-components/src/styles/global";
+@import "~ionic-form-components/src/styles/variables";
 ```
 
 ## Notes

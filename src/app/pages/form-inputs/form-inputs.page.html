@@ -8,44 +8,41 @@
 </ion-header>
 
 <ion-content>
-  <ng-container *ngIf="type === 'app-border-input'">
+  <ng-container *ngIf="type === 'app-border-input' || type === 'all'">
     <app-border-input
       label="Email"
       placeholder="User Email"
       required="true"
-      [(value)]="textValue">
+      [(value)]="textValue"
+    >
     </app-border-input>
   </ng-container>
-  <ng-container *ngIf="type === 'app-date-picker'">
+  <ng-container *ngIf="type === 'app-date-picker' || type === 'all'">
     <app-date-picker
       label="Start Date"
       placeholder="Select a date"
       required="true"
-      [(value)]="date">
+      [(value)]="date"
+    >
     </app-date-picker>
   </ng-container>
-  <ng-container *ngIf="type === 'app-textarea'">
+  <ng-container *ngIf="type === 'app-view-textarea' || type === 'all'">
     <app-textarea
       label="Description"
       placeholder="Provide a detail description"
       required="true"
-      [(value)]="textValue">
+      [(value)]="textValue"
+    >
     </app-textarea>
   </ng-container>
   <ng-container *ngIf="type === 'app-file-picker'">
-    <app-file-picker
-      label="Files"
-      required="true"
-      [(values)]="files">
+    <app-file-picker label="Files" required="true" [(values)]="files">
     </app-file-picker>
   </ng-container>
   <ng-container *ngIf="type === 'app-image-picker'">
-    <app-image-picker
-      label="Photo"
-      required="true">
-    </app-image-picker>
+    <app-image-picker label="Photo" required="true"></app-image-picker>
   </ng-container>
-  <ng-container *ngIf="type === 'app-single-select'">
+  <ng-container *ngIf="type === 'app-single-select' || type === 'all'">
     <app-single-select
       label="Nation"
       placeholder="Select a country"
@@ -53,16 +50,18 @@
       showSelectedValue="true"
       [(value)]="nation"
       [config]="nationConfig"
-      [options]="nations">
+      [options]="nations"
+    >
     </app-single-select>
   </ng-container>
-  <ng-container *ngIf="type === 'app-multiple-select'">
+  <ng-container *ngIf="type === 'app-multiple-select' || type === 'all'">
     <app-multiple-select
       label="Favorite Film Genres"
       placeholder="Select your favorite genres"
       [(values)]="favGenres"
       [options]="genres"
-      required="true">
+      required="true"
+    >
     </app-multiple-select>
   </ng-container>
   <ng-container *ngIf="type === 'app-expandable-select'">
@@ -71,7 +70,8 @@
       [options]="workTypes"
       [config]="workTypeConfig"
       [(value)]="workType"
-      required="true">
+      required="true"
+    >
     </app-expandable-select>
   </ng-container>
   <ng-container *ngIf="type === 'app-expandable-multiselect'">
@@ -79,28 +79,42 @@
       label="Favorite Technologies"
       [options]="techs"
       [(values)]="favTechs"
-      required="true">
+      required="true"
+    >
     </app-expandable-multiselect>
   </ng-container>
   <ng-container *ngIf="type === 'img[appImageViewer]'">
     <img
       src="https://images.unsplash.com/photo-1508739773434-c26b3d09e071?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80"
-      alt="Photo" width="150px" appImageViewer>
+      alt="Photo"
+      width="150px"
+      appImageViewer
+    />
   </ng-container>
   <ng-container *ngIf="type === 'parseJson'">
-    <b>Before</b><br>
+    <b>Before</b><br />
     <div>{{techs | json}}</div>
-    <br/>
+    <br />
     <b>After</b>
     <div>{{techs | json | parseJson}}</div>
   </ng-container>
   <ng-container *ngIf="type === 'timeAgo'">
     <b>Timestamp: </b> <span>{{timePoint.getTime()}}</span>
-    <br>
-    <br>
+    <br />
+    <br />
     <b>Date Time (GMT): </b> <span>{{timePoint.toUTCString()}}</span>
-    <br>
-    <br>
+    <br />
+    <br />
     <b>Time Ago: </b> <span>{{timePoint | timeAgo}}</span>
+  </ng-container>
+  <ng-container *ngIf="type === 'all'">
+    <app-view-multiple-select
+      label="Tags"
+      placeholder="No tag selected"
+      required="true"
+      [values]="['Safety', 'Quality', 'Performance']"
+    ></app-view-multiple-select>
+    <app-view-textarea label="Full Name" required="true" [value]="'Nam Bach'">
+    </app-view-textarea>
   </ng-container>
 </ion-content>

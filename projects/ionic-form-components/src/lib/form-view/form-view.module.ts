@@ -6,7 +6,7 @@ import { ImageItemsComponent } from './image-items/image-items.component';
 import { ImageViewerDirective } from './image-viewer/image-viewer.directive';
 import { ImageViewerModalComponent } from './image-viewer/image-viewer-modal.component';
 import { ViewMultipleSelectComponent } from './view-multiple-select/view-multiple-select.component';
-import { ViewTextareaComponent } from './textarea/view-textarea.component';
+import { ViewTextareaComponent } from './view-textarea/view-textarea.component';
 
 export {
   ImageViewerModalComponent,
