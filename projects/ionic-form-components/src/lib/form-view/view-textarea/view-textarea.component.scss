@@ -4,10 +4,12 @@
   .content {
     border: 1px solid var(--ion-color-light-shade);
     border-radius: var(--input-border-radius);
-    padding: var(--input-padding-top) var(--input-padding-end) var(--input-padding-bottom) var(--input-padding-start);
+    padding: var(--input-padding-top) var(--input-padding-end)
+      var(--input-padding-bottom) var(--input-padding-start);
 
     font-size: var(--input-font-size);
     color: var(--ion-color-dark);
+    background-color: var(--view-background-color);
 
     &.no-content {
       color: var(--ion-color-medium);

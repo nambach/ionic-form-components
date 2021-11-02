@@ -1,11 +1,15 @@
 :host {
   .input-container {
-    padding: var(--input-padding-top) var(--input-padding-end) var(--input-padding-bottom) var(--input-padding-start);
+    border: 1px solid var(--ion-color-light-shade);
     border-radius: var(--input-border-radius);
-    background-color: var(--ion-color-light-shade);
+    padding: var(--input-padding-top) var(--input-padding-end)
+      var(--input-padding-bottom) var(--input-padding-start);
+
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    background-color: var(--ion-color-light-shade);
 
     span {
       font-size: var(--input-font-size);
