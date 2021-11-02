@@ -1,5 +1,5 @@
 ion-item {
-  --min-height: 50px;
+  --min-height: var(--option-min-height);
 
   &.selected {
     --background: var(--ion-color-light-shade);

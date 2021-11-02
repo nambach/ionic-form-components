@@ -2,10 +2,14 @@
 
 :host {
   ion-textarea {
-    --padding-start: 12px;
-    --padding-end: 12px;
+    --padding-start: var(--input-padding-start);
+    --padding-end: var(--input-padding-end);
+    --padding-top: var(--input-padding-top);
+    --padding-bottom: var(--input-padding-bottom);
+
     --placeholder-color: var(--ion-color-medium);
+
     border: 1px solid var(--ion-color-light-shade);
-    border-radius: 4px;
+    border-radius: var(--input-border-radius);
   }
 }

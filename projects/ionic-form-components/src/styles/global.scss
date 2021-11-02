@@ -1,0 +1,24 @@
+/*for image viewer*/
+.transparent-modal .modal-wrapper {
+  --background: rgba(44, 39, 45, 0.2);
+}
+
+.full-modal {
+  --height: 100%;
+  --width: 100%;
+}
+
+app-border-input,
+app-date-picker,
+app-file-picker,
+app-image-picker,
+app-select-input,
+app-expandable-select,
+app-expandable-multiselect,
+app-textarea,
+app-view-textarea,
+app-view-multiple-select {
+  display: var(--component-display, block);
+  margin-top: var(--component-margin-top);
+  margin-bottom: var(--component-margin-bottom);
+}

@@ -3,13 +3,13 @@ import {
   emptyModalConfig,
   SelectModalConfig,
   Wrap,
-  wrapOptions
+  wrapOptions,
 } from '../../types/select-modal-config.models';
 
 @Component({
   selector: 'app-expandable-multiselect',
   templateUrl: './expandable-multiple-select.component.html',
-  styleUrls: ['./expandable-multiple-select.component.scss']
+  styleUrls: ['./expandable-multiple-select.component.scss'],
 })
 export class ExpandableMultipleSelectComponent implements OnInit {
   @Input() label = '';

@@ -1,14 +1,14 @@
 :host {
   .input-container {
-    padding: 10px 8px 12px;
+    padding: var(--input-padding-top) var(--input-padding-end) var(--input-padding-bottom) var(--input-padding-start);
+    border-radius: var(--input-border-radius);
     background-color: var(--ion-color-light-shade);
-    border-radius: 4px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     span {
-      font-size: 16px;
+      font-size: var(--input-font-size);
       color: var(--ion-color-dark);
 
       &.unselected {

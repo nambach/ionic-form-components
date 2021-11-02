@@ -1,7 +1,7 @@
 @import "../../../styles/button-select";
 
 app-border-input {
-  margin: 14px 0;
+  margin: 14px 0 !important;
 }
 
 #count-message {
@@ -13,6 +13,8 @@ app-border-input {
 }
 
 .bottom-buttons {
+  border-top: 1px solid var(--ion-color-light-shade);
+
   ion-button {
     &:first-child {
       flex: 1;

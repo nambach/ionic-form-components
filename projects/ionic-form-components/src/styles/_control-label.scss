@@ -1,7 +1,7 @@
 :host {
   .label {
-    padding-left: 2px;
-    font-size: 14px;
+    padding-left: var(--label-padding-start);
+    font-size: var(--label-font-size);
     margin-bottom: 6px;
     font-weight: bold;
     color: var(--ion-color-dark-tint);
