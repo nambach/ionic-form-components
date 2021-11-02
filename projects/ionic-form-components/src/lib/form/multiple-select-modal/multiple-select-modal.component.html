@@ -27,7 +27,6 @@
 
   <ion-content>
     <ion-list>
-      <br />
       <ng-container *ngFor="let option of filteredOptions; trackBy: trackByFn">
         <app-multiple-select-option
           (touch)="toggle(option)"

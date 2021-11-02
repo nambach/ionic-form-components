@@ -22,3 +22,10 @@ app-view-multiple-select {
   margin-top: var(--component-margin-top);
   margin-bottom: var(--component-margin-bottom);
 }
+
+app-select-input,
+app-date-picker,
+app-view-textarea {
+  --input-padding-top: 10.5px;
+  --input-padding-bottom: 10.5px;
+}
