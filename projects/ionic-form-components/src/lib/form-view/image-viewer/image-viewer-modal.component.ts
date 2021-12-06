@@ -1,4 +1,11 @@
-import { Component, Input, OnDestroy, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Input,
+  OnDestroy,
+  ViewChild,
+} from '@angular/core';
 import { IonSlides, ModalController } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -13,6 +20,7 @@ interface ImageViewerData {
   selector: 'app-image-viewer-modal',
   templateUrl: './image-viewer-modal.component.html',
   styleUrls: ['./image-viewer-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageViewerModalComponent implements OnDestroy {
   @ViewChild(IonSlides) slides: IonSlides;
@@ -26,7 +34,10 @@ export class ImageViewerModalComponent implements OnDestroy {
   };
   unsub$ = new Subject();
 
-  constructor(private modalCtrl: ModalController) {}
+  constructor(
+    private modalCtrl: ModalController,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   @Input() set data(data: ImageViewerData) {
     const { initialSlide, images } = data;
@@ -43,8 +54,10 @@ export class ImageViewerModalComponent implements OnDestroy {
       .subscribe(async (e) => {
         const i = await this.slides.getActiveIndex();
         this.label = this.images[i]?.name;
+        this.cdr.markForCheck();
       });
     this.slides.update();
+    this.cdr.markForCheck();
   }
 
   ngOnDestroy() {

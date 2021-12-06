@@ -1,10 +1,19 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  ViewChild,
+} from '@angular/core';
 import { IonIcon, IonInput } from '@ionic/angular';
 
 @Component({
   selector: 'app-border-input',
   templateUrl: './border-input.component.html',
-  styleUrls: ['./border-input.component.scss']
+  styleUrls: ['./border-input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BorderInputComponent implements OnInit {
   @ViewChild('input') input: IonInput;

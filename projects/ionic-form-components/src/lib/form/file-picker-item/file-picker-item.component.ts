@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { FileModel } from '../../types';
 import { calculateFileSize } from '../../utils';
 
@@ -6,6 +13,7 @@ import { calculateFileSize } from '../../utils';
   selector: 'app-file-picker-item',
   templateUrl: './file-picker-item.component.html',
   styleUrls: ['./file-picker-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilePickerItemComponent {
   @Output() deleteTouch = new EventEmitter();
@@ -15,7 +23,7 @@ export class FilePickerItemComponent {
   imageSrc: any = 'https://cdn-icons-png.flaticon.com/512/633/633585.png';
   fileSize = '';
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   @Input() set file(file: FileModel) {
     this.rawFile = file;
@@ -31,6 +39,7 @@ export class FilePickerItemComponent {
     const reader = new FileReader();
     reader.onload = (e) => {
       this.imageSrc = e.target.result;
+      this.cdr.markForCheck();
     };
     reader.readAsDataURL(file);
   }

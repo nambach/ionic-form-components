@@ -1,4 +1,6 @@
 import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EventEmitter,
@@ -11,6 +13,7 @@ import {
   selector: 'app-image-picker',
   templateUrl: './image-picker.component.html',
   styleUrls: ['./image-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImagePickerComponent {
   @ViewChild('input') picker: ElementRef<HTMLInputElement>;
@@ -22,7 +25,7 @@ export class ImagePickerComponent {
 
   @Input() imageUrl: any;
 
-  constructor() {}
+  constructor(private cdr: ChangeDetectorRef) {}
 
   handleOpen() {
     this.picker.nativeElement.click();
@@ -41,6 +44,7 @@ export class ImagePickerComponent {
       const reader = new FileReader();
       reader.onload = (e) => {
         this.imageUrl = e.target.result;
+        this.cdr.markForCheck();
       };
       reader.readAsDataURL(file);
       this.imageChange.emit(file);

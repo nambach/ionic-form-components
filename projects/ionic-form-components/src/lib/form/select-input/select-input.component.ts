@@ -1,9 +1,16 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-select-input',
   templateUrl: './select-input.component.html',
-  styleUrls: ['./select-input.component.scss']
+  styleUrls: ['./select-input.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectInputComponent {
   @Input() label = '';

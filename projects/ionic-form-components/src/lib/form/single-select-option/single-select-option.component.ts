@@ -1,9 +1,16 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-single-select-option',
   templateUrl: './single-select-option.component.html',
-  styleUrls: ['./single-select-option.component.scss']
+  styleUrls: ['./single-select-option.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SingleSelectOptionComponent {
   @Input() isSelected = false;

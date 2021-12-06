@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ImageData } from '../../types';
 import { ImageViewerModalComponent } from '../image-viewer/image-viewer-modal.component';
@@ -6,7 +6,8 @@ import { ImageViewerModalComponent } from '../image-viewer/image-viewer-modal.co
 @Component({
   selector: 'app-image-items',
   templateUrl: './image-items.component.html',
-  styleUrls: ['./image-items.component.scss']
+  styleUrls: ['./image-items.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImageItemsComponent {
   @Input() images: ImageData[] = [];
@@ -16,13 +17,13 @@ export class ImageItemsComponent {
   async openViewer(index: number) {
     const modal = await this.modalCtrl.create({
       component: ImageViewerModalComponent,
-      cssClass: 'transparent-modal',
+      cssClass: 'transparent-modal full-modal',
       componentProps: {
         data: {
           initialSlide: index,
-          images: this.images
-        }
-      }
+          images: this.images,
+        },
+      },
     });
     modal.present();
   }

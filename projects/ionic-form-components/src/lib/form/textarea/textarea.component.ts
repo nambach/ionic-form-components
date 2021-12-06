@@ -1,9 +1,16 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-textarea',
   templateUrl: './textarea.component.html',
-  styleUrls: ['./textarea.component.scss']
+  styleUrls: ['./textarea.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TextareaComponent {
   @Input() label = '';

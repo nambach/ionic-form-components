@@ -1,10 +1,13 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
+  OnChanges,
   OnDestroy,
   OnInit,
   Output,
+  SimpleChanges,
 } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import {
@@ -18,46 +21,62 @@ import {
   selector: 'app-multiple-select-modal',
   templateUrl: './multiple-select-modal.component.html',
   styleUrls: ['./multiple-select-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MultipleSelectModalComponent implements OnInit, OnDestroy {
+export class MultipleSelectModalComponent
+  implements OnInit, OnDestroy, OnChanges
+{
+  @Input() config: SelectModalConfig = emptyModalConfig;
+  @Input() options: any[]; // Raw options
+  @Input() values: unknown[] = []; // initial values
+
   @Output() valuesChange = new EventEmitter<unknown[]>();
 
   search = '';
   countMessage = 'No selected';
   allOptions: Wrap[] = [];
   filteredOptions: Wrap[] = [];
-  initialValues: unknown[] = [];
-  modalConfig: SelectModalConfig = emptyModalConfig;
 
   constructor(private modalCtrl: ModalController) {}
 
-  @Input() set config(config: SelectModalConfig) {
-    this.modalConfig = config;
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
+    const { config, options, values } = changes;
+    let changed = config || options || values || false;
 
-    // re-wrap options
-    const options = this.allOptions.map((o) => o.data);
-    this.allOptions = wrapOptions(config, options);
+    if (config) {
+      this.config = config.currentValue;
+    }
 
-    this.handleSearch(this.search);
-    this.toggleInitialValues();
+    if (options) {
+      this.options = options.currentValue;
+    }
+
+    if (values) {
+      this.values = values.currentValue;
+    }
+
+    // POST update
+    if (config || options) {
+      this.computeConfig();
+    } else if (values) {
+      // set selected options
+      this.toggleInitialValues();
+    }
   }
 
-  @Input() set options(options: unknown[]) {
-    this.allOptions = wrapOptions(this.modalConfig, options);
+  computeConfig() {
+    // re-wrap options
+    this.allOptions = wrapOptions(this.config, this.options);
 
     // display filtered options
     this.handleSearch(this.search);
     this.toggleInitialValues();
   }
 
-  @Input() set values(initialValues: unknown[]) {
-    this.initialValues = initialValues;
-
-    // set selected options
-    this.toggleInitialValues();
+  ngOnInit() {
+    this.computeConfig();
   }
-
-  ngOnInit() {}
 
   ngOnDestroy() {}
 
@@ -70,7 +89,7 @@ export class MultipleSelectModalComponent implements OnInit, OnDestroy {
   }
 
   dismiss() {
-    this.modalCtrl.dismiss(this.initialValues);
+    this.modalCtrl.dismiss(this.values);
   }
 
   handleSearch(value: string) {
@@ -94,8 +113,8 @@ export class MultipleSelectModalComponent implements OnInit, OnDestroy {
   }
 
   toggleInitialValues() {
-    const { keyExtractor } = this.modalConfig;
-    const keys = this.initialValues?.map(keyExtractor) || [];
+    const { keyExtractor } = this.config;
+    const keys = this.values?.map(keyExtractor) || [];
     this.allOptions.forEach((option) => {
       option.isSelected = keys.includes(option.key);
     });

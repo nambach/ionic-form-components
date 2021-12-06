@@ -1,9 +1,10 @@
-import {Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-view-multiple-select',
   templateUrl: './view-multiple-select.component.html',
-  styleUrls: ['./view-multiple-select.component.scss']
+  styleUrls: ['./view-multiple-select.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ViewMultipleSelectComponent {
   @Input() label = '';

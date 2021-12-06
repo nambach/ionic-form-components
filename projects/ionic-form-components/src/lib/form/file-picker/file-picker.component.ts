@@ -1,4 +1,5 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   EventEmitter,
@@ -12,6 +13,7 @@ import { FileModel } from '../../types';
   selector: 'app-file-picker',
   templateUrl: './file-picker.component.html',
   styleUrls: ['./file-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FilePickerComponent {
   @ViewChild('picker') picker: ElementRef<HTMLInputElement>;

@@ -1,4 +1,13 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import {
   emptyModalConfig,
@@ -11,51 +20,63 @@ import {
   selector: 'ion-single-select-modal',
   templateUrl: './single-select-modal.component.html',
   styleUrls: ['./single-select-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SingleSelectModalComponent {
+export class SingleSelectModalComponent implements OnChanges, OnInit {
   @Input() showSelectedValue = false;
+  @Input() config: SelectModalConfig = emptyModalConfig;
+  @Input() options: any[]; // Raw options
+  @Input() value: unknown; // Initial value
+
   @Output() valueChange = new EventEmitter<unknown>();
 
   search = '';
   allOptions: Wrap[] = [];
   filteredOptions: Wrap[] = [];
-  initialValue: unknown;
   displayValue: any;
-  modalConfig: SelectModalConfig = emptyModalConfig;
 
   constructor(private modalCtrl: ModalController) {}
 
-  @Input() set config(config: SelectModalConfig) {
-    this.modalConfig = config;
-
-    // re-wrap options
-    const options = this.allOptions.map((o) => o.data);
-    this.allOptions = wrapOptions(config, options);
-
-    this.handleSearch(this.search);
-    this.toggleInitialValue();
+  ngOnInit(): void {
+    this.computeConfig();
   }
 
-  @Input() set options(options: unknown[]) {
-    this.allOptions = wrapOptions(this.modalConfig, options);
+  ngOnChanges(changes: SimpleChanges): void {
+    const { config, options, value } = changes;
 
-    // display filtered options
-    this.handleSearch(this.search);
-    this.toggleInitialValue();
-  }
-
-  @Input() set value(initialValue: unknown) {
-    this.initialValue = initialValue;
-    if (this.modalConfig?.valueExtractor && initialValue) {
-      this.displayValue = this.modalConfig.valueExtractor(initialValue);
+    if (config) {
+      this.config = config.currentValue;
     }
 
-    // set selected value
+    if (options) {
+      this.options = options.currentValue;
+    }
+
+    if (value) {
+      this.value = value.currentValue;
+    }
+
+    if (config || options) {
+      this.computeConfig();
+    } else if (value) {
+      if (this.config?.valueExtractor && this.value) {
+        this.displayValue = this.config.valueExtractor(this.value);
+      }
+      // set selected value
+      this.toggleInitialValue();
+    }
+  }
+
+  computeConfig() {
+    // re-wrap options
+    this.allOptions = wrapOptions(this.config, this.options);
+
+    this.handleSearch(this.search);
     this.toggleInitialValue();
   }
 
   dismiss() {
-    this.modalCtrl.dismiss(this.initialValue);
+    this.modalCtrl.dismiss(this.value);
   }
 
   handleSelect(option: Wrap) {
@@ -77,12 +98,12 @@ export class SingleSelectModalComponent {
     // deselect all
     this.allOptions.forEach((o) => (o.isSelected = false));
 
-    const value = this.initialValue;
+    const value = this.value;
     if (value === null || value === undefined) {
       return;
     }
 
-    const key = this.modalConfig.keyExtractor(value);
+    const key = this.config.keyExtractor(value);
     const option = this.allOptions.find((o) => o.key === key);
 
     if (option) {

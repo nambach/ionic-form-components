@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import {
   emptyModalConfig,
   SelectModalConfig,
@@ -10,6 +17,7 @@ import {
   selector: 'app-expandable-select',
   templateUrl: './expandable-single-select.component.html',
   styleUrls: ['./expandable-single-select.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpandableSingleSelectComponent implements OnInit {
   @Input() label = '';

@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { emptyModalConfig } from '../../types';
 import { MultipleSelectModalComponent } from '../multiple-select-modal/multiple-select-modal.component';
@@ -7,8 +15,9 @@ import { MultipleSelectModalComponent } from '../multiple-select-modal/multiple-
   selector: 'app-multiple-select',
   templateUrl: './multiple-select.component.html',
   styleUrls: ['./multiple-select.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MultipleSelectComponent {
+export class MultipleSelectComponent implements OnChanges {
   @Input() label = '';
   @Input() placeholder = '';
   @Input() required: any;
@@ -21,7 +30,17 @@ export class MultipleSelectComponent {
   @Input() config = emptyModalConfig;
   @Input() options: unknown[] = [];
 
+  displayValue: string = null;
+
   constructor(public modalCtrl: ModalController) {}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const newValues = changes['values'];
+    if (newValues) {
+      this.values = newValues.currentValue;
+      this.updateDisplayValue();
+    }
+  }
 
   async openModal() {
     if (this.readonly) {
@@ -50,15 +69,16 @@ export class MultipleSelectComponent {
     });
   }
 
-  getValue() {
+  updateDisplayValue(): void {
     if (!this.values?.length) {
-      return null;
+      this.displayValue = null;
+      return;
     }
 
     const all =
       this.values?.length === this.options?.length && this.options?.length > 0
         ? ' (All)'
         : '';
-    return `${this.values?.length} selected${all}`;
+    this.displayValue = `${this.values?.length} selected${all}`;
   }
 }

@@ -1,5 +1,6 @@
 import {
   AfterViewInit,
+  ChangeDetectionStrategy,
   Component,
   ElementRef,
   Input,
@@ -11,6 +12,7 @@ import {
   selector: 'app-expandable',
   templateUrl: './expandable.component.html',
   styleUrls: ['./expandable.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpandableComponent implements AfterViewInit {
   @ViewChild('expandWrapper', { read: ElementRef }) expandWrapper: ElementRef;

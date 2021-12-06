@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { emptyModalConfig } from '../../types';
 import { SingleSelectModalComponent } from '../single-select-modal/single-select-modal.component';
@@ -7,8 +15,9 @@ import { SingleSelectModalComponent } from '../single-select-modal/single-select
   selector: 'app-single-select',
   templateUrl: './single-select.component.html',
   styleUrls: ['./single-select.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SingleSelectComponent {
+export class SingleSelectComponent implements OnChanges {
   @Input() label = '';
   @Input() placeholder = '';
   @Input() required: any;
@@ -21,20 +30,32 @@ export class SingleSelectComponent {
   @Input() config = emptyModalConfig;
   @Input() options: unknown[] = [];
 
+  displayValue: string = null;
+
   constructor(public modalCtrl: ModalController) {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    const { value } = changes;
+    if (value) {
+      this.value = value.currentValue;
+      this.updateDisplayValue();
+    }
+  }
+
   async openModal() {
-    if (this.label) {
-      this.config.title = this.label;
+    const { label, showSelectedValue, config, options, value } = this;
+
+    if (label) {
+      config.title = label;
     }
 
     const modal = await this.modalCtrl.create({
       component: SingleSelectModalComponent,
       componentProps: {
-        showSelectedValue: this.showSelectedValue,
-        config: this.config,
-        options: this.options,
-        value: this.value,
+        showSelectedValue,
+        config,
+        options,
+        value,
       },
     });
     modal.present();
@@ -47,10 +68,12 @@ export class SingleSelectComponent {
     });
   }
 
-  getValue() {
+  updateDisplayValue() {
     if (this.value === null || this.value === undefined) {
-      return null;
+      this.displayValue = null;
+      return;
     }
-    return this.config.valueExtractor(this.value);
+
+    this.displayValue = this.config.valueExtractor(this.value);
   }
 }

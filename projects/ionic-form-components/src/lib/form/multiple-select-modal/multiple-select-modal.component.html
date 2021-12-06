@@ -9,13 +9,13 @@
       <ion-buttons slot="end">
         <ion-button (click)="toggleAll(true)" fill="clear"> All</ion-button>
       </ion-buttons>
-      <ion-title>{{ modalConfig.title }}</ion-title>
+      <ion-title>{{ config.title }}</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <app-border-input
     (valueChange)="handleSearch($event)"
-    [placeholder]="'Search ' + modalConfig.title"
+    [placeholder]="'Search ' + config.title"
     [value]="search"
     isSearchBox="true"
     style="padding: 0 16px"

@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import {
   emptyModalConfig,
   SelectModalConfig,
@@ -10,6 +17,7 @@ import {
   selector: 'app-expandable-multiselect',
   templateUrl: './expandable-multiple-select.component.html',
   styleUrls: ['./expandable-multiple-select.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExpandableMultipleSelectComponent implements OnInit {
   @Input() label = '';
